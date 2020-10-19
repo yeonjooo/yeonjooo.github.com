@@ -1,2 +1,2 @@
-# yeonjooo.github.com
+# yeonjooo.github.io
 For My Blog
