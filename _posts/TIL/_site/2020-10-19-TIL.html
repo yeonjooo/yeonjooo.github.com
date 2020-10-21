@@ -1,0 +1,22 @@
+<ol>
+  <li>github blog 생성
+    <ul>
+      <li>jekyll 적용</li>
+      <li>docker로 test 환경 구축</li>
+    </ul>
+    <ul>
+      <li>docker run –rm –volume=”$PWD:/srv/jekyll” –privileged -p 4000:4000 -it jekyll/jekyll /bin/bash
+    jekyll serve
+        <ul>
+          <li>접속할 수 있는 주소를 출력해주면 해당 url로 접속하여 테스트 후 push
+            <ul>
+              <li>docker로 테스트 환경 구축하면 매우 편리</li>
+              <li>github은 내장하고 있는 ruby 엔진을 통해 로딩</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
