@@ -1,0 +1,31 @@
+I"�<ol>
+  <li>AF_INET/PF_INET 차이점
+    <ul>
+      <li>UNP 복습 중, AF_INET과 PF_INET의 차이점이 궁금해 조사였다.</li>
+      <li>AF_INET은 주소 체계 패밀리로, sockaddr_in에서 socket의 주소를 정할 때 설정하는 값이다.</li>
+      <li>PF_INET은 프로토콜 패밀리로, 실제 socket 함수로 연결 방식을 정할 때 설정하는 값이다.</li>
+      <li>AF_INET과 PF_INET은 같은 값을 가진다(#define PF_INET AF_INET). 그럼에도 분리되어 있는 이유는, socket에 대해 처음 설계할 때 한 주소체계가 여러 프로토콜을 사용할 수 있다고 가정하여 확장성을 주고자 했기 때문이다.</li>
+      <li>하지만 현재 위와 같은 일은 일어나지 않고 있다. 즉 구분이 무의미하다. 리눅스 커널 man 페이지도 AF_INET만을 쓸 것을 권장하고 있다.</li>
+    </ul>
+  </li>
+  <li>Unix Network Programming 복습
+    <ul>
+      <li>chap 3 socket introduction</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int a[10];
+memset(a, 5, sizeof(a));
+</code></pre></div></div>
+
+<ul>
+  <li>위의 코드에서 a[0]의 값은 5일까?
+    <ul>
+      <li>memset은 무조건 바이트 단위로 값을 채운다.</li>
+      <li>int는 4바이트이므로 a[0]에는 0x05050505가 들어갈 것이다.</li>
+    </ul>
+  </li>
+</ul>
+
+:ET

@@ -1,0 +1,18 @@
+I"	<ol>
+  <li>WebServer 개발
+    <ul>
+      <li>network layer 소스 강화</li>
+      <li>내가 담당 중인 WebServer 제품에서는 epoll, select, devpoll 등이 직접 구현되어 있다. 새롭게 만들 C++ WebServer에서는 직접 구현하기 보다는 boost나 libev등을 써볼 계획이다. 우선 boost에 대해 조사했고, 내일 직접 빌드해서 써보려고 한다.</li>
+    </ul>
+  </li>
+  <li>jekyll category 추가
+    <ul>
+      <li>a. _layouts 폴더에 category.html 파일 생성 후 카테고리를 어떻게 보여줄지 설정
+b. _includes 폴더에 index.html 파일 수정
+c. category 폴더 생성하여 만들고자 하는 카테코리들의 md 파일 생성
+d. 이후 post를 작성할 때 category 추가</li>
+    </ul>
+  </li>
+</ol>
+
+:ET
