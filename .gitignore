@@ -1,1 +1,8 @@
-_posts/_sites
+_posts/_site
+_site
+.jekyll-metadata
+.jekyll
+.sass-cache
+Gemfile
+Gemfile.lock
+
