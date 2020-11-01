@@ -1,19 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-10-24T09:57:00-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Yeonjoo’s Blog</title><subtitle>For My Blog</subtitle><author><name>이연주</name></author><entry><title type="html">[TIL] 2020-10-24</title><link href="http://0.0.0.0:4000/2020/10/24/TIL/" rel="alternate" type="text/html" title="[TIL] 2020-10-24" /><published>2020-10-24T00:00:00-05:00</published><updated>2020-10-24T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/10/24/TIL</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/24/TIL/">&lt;ol&gt;
-  &lt;li&gt;AF_INET/PF_INET 차이점
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2020-11-01T05:41:39-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Yeonjoo’s Blog</title><subtitle>For My Blog</subtitle><author><name>이연주</name></author><entry><title type="html">[C++] Reference</title><link href="http://0.0.0.0:4000/2020/11/01/C++/" rel="alternate" type="text/html" title="[C++] Reference" /><published>2020-11-01T00:00:00-05:00</published><updated>2020-11-01T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/11/01/C++</id><content type="html" xml:base="http://0.0.0.0:4000/2020/11/01/C++/">&lt;h1 id=&quot;reference참조자&quot;&gt;Reference(참조자)&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;C++은 참조자라는 특수한 종류의 변수를 제공한다.
     &lt;ul&gt;
-      &lt;li&gt;UNP 복습 중, AF_INET과 PF_INET의 차이점이 궁금해 조사였다.&lt;/li&gt;
-      &lt;li&gt;AF_INET은 주소 체계 패밀리로, sockaddr_in에서 socket의 주소를 정할 때 설정하는 값이다.&lt;/li&gt;
-      &lt;li&gt;PF_INET은 프로토콜 패밀리로, 실제 socket 함수로 연결 방식을 정할 때 설정하는 값이다.&lt;/li&gt;
-      &lt;li&gt;AF_INET과 PF_INET은 같은 값을 가진다(#define PF_INET AF_INET). 그럼에도 분리되어 있는 이유는, socket에 대해 처음 설계할 때 한 주소체계가 여러 프로토콜을 사용할 수 있다고 가정하여 확장성을 주고자 했기 때문이다.&lt;/li&gt;
-      &lt;li&gt;하지만 현재 위와 같은 일은 일어나지 않고 있다. 즉 구분이 무의미하다. 리눅스 커널 man 페이지도 AF_INET만을 쓸 것을 권장하고 있다.&lt;/li&gt;
+      &lt;li&gt;객체 지향의 다형성 개념을 지원하기 위함이라는데, 상속 및 가상 함수, 가상 테이블을 배운 뒤 다시 이해해 보도록 해야겠다.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;Unix Network Programming 복습
+  &lt;li&gt;선언 시 타입에 &amp;amp;를 붙여 표현한다.
     &lt;ul&gt;
-      &lt;li&gt;chap 3 socket introduction&lt;/li&gt;
+      &lt;li&gt;ex) int &amp;amp;a = 변수;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
+  &lt;li&gt;변수를 참조하는(가리키는) 목적으로 사용되며, 스택에 저장되는 일반 변수와 달리 별도의 저장 공간을 가지지 않는다.
+    &lt;ul&gt;
+      &lt;li&gt;컴파일러마다 필요 시 메모리를 갖는 경우도 있다고 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;선언과 동시에 초기화 되어야 하며 한번 초기화 되면 다른 값을 가질 수 없다. 따라서 NULL 값을 가질 수 없다.&lt;/li&gt;
+  &lt;li&gt;함수의 인자로 참조자를 전달하면 변수의 복사가 일어나지 않는다.&lt;/li&gt;
+  &lt;li&gt;포인터와 동일하게 쓰이지만 다음과 같은 차이가 있다.
+    &lt;ul&gt;
+      &lt;li&gt;멤버 변수에 접근할 때 포인터의 경우’-&amp;gt;’를, 참조자의 경우 ‘.’를 사용한다.&lt;/li&gt;
+      &lt;li&gt;포인터와 달리 참조자는 NULL 값을 가질 수 없다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;함수의 매개 변수로 참조자를 사용할 경우 call by reference를 사용할 수 있기 때문에 함수 내에서 변경된 값이 함수 밖에서도 유지된다. 단, call-by-value와 사용법이 같아져 해당 변수가 참조자인지 아닌지 구분하기 어렵다.&lt;/li&gt;
+  &lt;li&gt;클래스의 멤버 변수로 참조자를 사용할 경우, const와 마찬가지로 인스턴스 생성과 동시에 초기화가 이루어져야 한다(생성자를 통해).&lt;/li&gt;
+  &lt;li&gt;참조자는 변수가 아니기 때문에 리터럴을 대입할 수 없다. 리터럴을 대입하고 싶으면 const로 선언을 해야하며, 이 경우 예외적으로 저장소를 가진다.
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int &amp;amp;a = 10; //compile 오류
+const int &amp;amp;a = 10; //정상
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;일반적으로 &lt;strong&gt;구조체나 클래스&lt;/strong&gt;와 같이 크기가 큰 변수를 함수 인자로  전달할 때 많이 사용한다.
+    &lt;ul&gt;
+      &lt;li&gt;일반 변수를 넘길 때는 call-by-value를 이용하는 것이 더 좋다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;참조자를 함수의 인수로 사용할 때, 함수 내부에서 값이 바뀌는 것을 원치 않으면 const로 선언하면 된다.
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int MyBook(const Book &amp;amp;book) {..}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;call-by-pointer도 마찬가지이다. pointer로 넘겨 복사가 잃어나지 않게 하는 동시에 const를 사용해 내부에서 값이 수정되지 않도록 할 수 있다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;예제&quot;&gt;예제&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- ```
+  int main() {
+  	Book myBook = new Book(&quot;Reference의 이해&quot;);
+  	DisplayMyBook(myBook);
+  }
+  
+  void DisplayMyBook(const Book &amp;amp;book) {
+  	std::count &amp;lt;&amp;lt; book.titile &amp;lt;&amp;lt; std::endl;
+  }
+  ```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>이연주</name></author><category term="C++" /><summary type="html">Reference(참조자)</summary></entry><entry><title type="html">[TIL] 2020-10-24</title><link href="http://0.0.0.0:4000/2020/10/24/TIL/" rel="alternate" type="text/html" title="[TIL] 2020-10-24" /><published>2020-10-24T00:00:00-05:00</published><updated>2020-10-24T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/10/24/TIL</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/24/TIL/">&lt;h2 id=&quot;1-af_inetpf_inet-차이점&quot;&gt;1. AF_INET/PF_INET 차이점&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;UNP 복습 중, AF_INET과 PF_INET의 차이점이 궁금해 조사하였다.&lt;/li&gt;
+  &lt;li&gt;AF_INET은 주소 체계 패밀리로, sockaddr_in에서 socket의 주소를 정할 때 설정하는 값이다.&lt;/li&gt;
+  &lt;li&gt;PF_INET은 프로토콜 패밀리로, 실제 socket 함수로 연결 방식을 정할 때 설정하는 값이다.&lt;/li&gt;
+  &lt;li&gt;AF_INET과 PF_INET은 같은 값을 가진다(#define PF_INET AF_INET). 그럼에도 분리되어 있는 이유는, socket에 대해 처음 설계할 때 한 주소체계가 여러 프로토콜을 사용할 수 있다고 가정하여 확장성을 주고자 했기 때문이다.&lt;/li&gt;
+  &lt;li&gt;하지만 현재 위와 같은 일은 일어나지 않고 있다. 즉 구분이 무의미하다. 리눅스 커널 man 페이지도 AF_INET만을 쓸 것을 권장하고 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-unix-network-programming-복습&quot;&gt;2. Unix Network Programming 복습&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;chap 3 socket introduction&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int a[10];
 memset(a, 5, sizeof(a));
@@ -26,71 +87,57 @@ memset(a, 5, sizeof(a));
       &lt;li&gt;int는 4바이트이므로 a[0]에는 0x05050505가 들어갈 것이다.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>이연주</name></author><category term="TIL" /><summary type="html">AF_INET/PF_INET 차이점 UNP 복습 중, AF_INET과 PF_INET의 차이점이 궁금해 조사였다. AF_INET은 주소 체계 패밀리로, sockaddr_in에서 socket의 주소를 정할 때 설정하는 값이다. PF_INET은 프로토콜 패밀리로, 실제 socket 함수로 연결 방식을 정할 때 설정하는 값이다. AF_INET과 PF_INET은 같은 값을 가진다(#define PF_INET AF_INET). 그럼에도 분리되어 있는 이유는, socket에 대해 처음 설계할 때 한 주소체계가 여러 프로토콜을 사용할 수 있다고 가정하여 확장성을 주고자 했기 때문이다. 하지만 현재 위와 같은 일은 일어나지 않고 있다. 즉 구분이 무의미하다. 리눅스 커널 man 페이지도 AF_INET만을 쓸 것을 권장하고 있다.</summary></entry><entry><title type="html">[TIL] 2020-10-23</title><link href="http://0.0.0.0:4000/2020/10/23/TIL/" rel="alternate" type="text/html" title="[TIL] 2020-10-23" /><published>2020-10-23T00:00:00-05:00</published><updated>2020-10-23T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/10/23/TIL</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/23/TIL/">&lt;ol&gt;
-  &lt;li&gt;WebServer 개발
-    &lt;ul&gt;
-      &lt;li&gt;network layer 소스 강화&lt;/li&gt;
-      &lt;li&gt;내가 담당 중인 WebServer 제품에서는 epoll, select, devpoll 등이 직접 구현되어 있다. 새롭게 만들 C++ WebServer에서는 직접 구현하기 보다는 boost나 libev등을 써볼 계획이다. 우선 boost에 대해 조사했고, 내일 직접 빌드해서 써보려고 한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;jekyll permalink 수정
-    &lt;ul&gt;
-      &lt;li&gt;기본 permalink(_config.yaml)가 /:category/:tag/로 되어 있어 post가 정상적으로 노출 되지 않는 문제가 있었다.&lt;/li&gt;
-      &lt;li&gt;/:year/:month/:day/:title/로 수정하여 해결&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>이연주</name></author><category term="TIL" /><summary type="html">WebServer 개발 network layer 소스 강화 내가 담당 중인 WebServer 제품에서는 epoll, select, devpoll 등이 직접 구현되어 있다. 새롭게 만들 C++ WebServer에서는 직접 구현하기 보다는 boost나 libev등을 써볼 계획이다. 우선 boost에 대해 조사했고, 내일 직접 빌드해서 써보려고 한다.</summary></entry><entry><title type="html">[TIL] 2020-10-21</title><link href="http://0.0.0.0:4000/2020/10/21/TIL/" rel="alternate" type="text/html" title="[TIL] 2020-10-21" /><published>2020-10-21T00:00:00-05:00</published><updated>2020-10-21T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/10/21/TIL</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/21/TIL/">&lt;ol&gt;
-  &lt;li&gt;docker 설치 후 wsl과 연동
-    &lt;ul&gt;
-      &lt;li&gt;docker에서 jekyll 엔진을 구동하기 위해서는 회사 개발 컴퓨터로 접속해야만 했다.
+&lt;/ul&gt;</content><author><name>이연주</name></author><category term="TIL" /><summary type="html">1. AF_INET/PF_INET 차이점 UNP 복습 중, AF_INET과 PF_INET의 차이점이 궁금해 조사하였다. AF_INET은 주소 체계 패밀리로, sockaddr_in에서 socket의 주소를 정할 때 설정하는 값이다. PF_INET은 프로토콜 패밀리로, 실제 socket 함수로 연결 방식을 정할 때 설정하는 값이다. AF_INET과 PF_INET은 같은 값을 가진다(#define PF_INET AF_INET). 그럼에도 분리되어 있는 이유는, socket에 대해 처음 설계할 때 한 주소체계가 여러 프로토콜을 사용할 수 있다고 가정하여 확장성을 주고자 했기 때문이다. 하지만 현재 위와 같은 일은 일어나지 않고 있다. 즉 구분이 무의미하다. 리눅스 커널 man 페이지도 AF_INET만을 쓸 것을 권장하고 있다.</summary></entry><entry><title type="html">[TIL] 2020-10-23</title><link href="http://0.0.0.0:4000/2020/10/23/TIL/" rel="alternate" type="text/html" title="[TIL] 2020-10-23" /><published>2020-10-23T00:00:00-05:00</published><updated>2020-10-23T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/10/23/TIL</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/23/TIL/">&lt;h2 id=&quot;1-webserver-개발&quot;&gt;1. WebServer 개발&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;network layer 소스 강화&lt;/li&gt;
+  &lt;li&gt;내가 담당 중인 WebServer 제품에서는 epoll, select, devpoll 등이 직접 구현되어 있다. 새롭게 만들 C++ WebServer에서는 직접 구현하기 보다는 boost나 libev등을 써볼 계획이다. 우선 boost에 대해 조사했고, 내일 직접 빌드해서 써보려고 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-jekyll-permalink-수정&quot;&gt;2. jekyll permalink 수정&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;기본 permalink(_config.yaml)가 /:category/:tag/로 되어 있어 post가 정상적으로 노출 되지 않는 문제가 있었다.&lt;/li&gt;
+  &lt;li&gt;/:year/:month/:day/:title/로 수정하여 해결&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>이연주</name></author><category term="TIL" /><summary type="html">1. WebServer 개발 network layer 소스 강화 내가 담당 중인 WebServer 제품에서는 epoll, select, devpoll 등이 직접 구현되어 있다. 새롭게 만들 C++ WebServer에서는 직접 구현하기 보다는 boost나 libev등을 써볼 계획이다. 우선 boost에 대해 조사했고, 내일 직접 빌드해서 써보려고 한다.</summary></entry><entry><title type="html">[TIL] 2020-10-21</title><link href="http://0.0.0.0:4000/2020/10/21/TIL/" rel="alternate" type="text/html" title="[TIL] 2020-10-21" /><published>2020-10-21T00:00:00-05:00</published><updated>2020-10-21T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/10/21/TIL</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/21/TIL/">&lt;h2 id=&quot;1-docker-설치-후-wsl과-연동&quot;&gt;1. docker 설치 후 wsl과 연동&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;docker에서 jekyll 엔진을 구동하기 위해서는 회사 개발 컴퓨터로 접속해야만 했다.
 이제는 WSL을 통해 Windows에서도 docker 사용할 수 있다!&lt;/li&gt;
-      &lt;li&gt;docker 설치 후 docker setting에서 WSL 연동할 수 있도록 몇 가지 설정만 하면 되서 매우 편리하다.
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/tutorials/wsl-containers&quot;&gt;microsoft docs&lt;/a&gt;에 방법이 잘 정리되어 있다.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
+  &lt;li&gt;docker 설치 후 docker setting에서 WSL 연동할 수 있도록 몇 가지 설정만 하면 되서 매우 편리하다.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/tutorials/wsl-containers&quot;&gt;microsoft docs&lt;/a&gt;에 방법이 잘 정리되어 있다.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;Unix Network Programming 복습
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-unix-network-programming-복습&quot;&gt;2. Unix Network Programming 복습&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;C++로 WebServer를 만드는 프로젝트를 진행 중이다.&lt;/li&gt;
+  &lt;li&gt;Network layer부터 다시 개발하고 있기 때문에 과거 공부하면서 정리했던 UNP를 다시 복습했다.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>이연주</name></author><category term="TIL" /><summary type="html">1. docker 설치 후 wsl과 연동 docker에서 jekyll 엔진을 구동하기 위해서는 회사 개발 컴퓨터로 접속해야만 했다. 이제는 WSL을 통해 Windows에서도 docker 사용할 수 있다! docker 설치 후 docker setting에서 WSL 연동할 수 있도록 몇 가지 설정만 하면 되서 매우 편리하다. microsoft docs에 방법이 잘 정리되어 있다.</summary></entry><entry><title type="html">[TIL] 2020-10-20</title><link href="http://0.0.0.0:4000/2020/10/20/TIL/" rel="alternate" type="text/html" title="[TIL] 2020-10-20" /><published>2020-10-20T00:00:00-05:00</published><updated>2020-10-20T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/10/20/TIL</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/20/TIL/">&lt;h2 id=&quot;1-clion에서-github-연동&quot;&gt;1. CLion에서 github 연동&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;WSL
     &lt;ul&gt;
-      &lt;li&gt;C++로 WebServer를 만드는 프로젝트를 진행 중이다.&lt;/li&gt;
-      &lt;li&gt;Network layer부터 다시 개발하고 있기 때문에 과거 공부하면서 정리했던 UNP를 다시 복습했다.&lt;/li&gt;
+      &lt;li&gt;형상 관리를 위해 CLion과 Git을 연동했다. Git을 직접 설치한 후 경로를 잡아도 되지만, WSL을 이용하면 CLion에서 자동으로 WSL에 설치된 git path를 잡는다고 한다.&lt;/li&gt;
+      &lt;li&gt;WSL 정리 -&amp;gt; 추후 페이지 추가&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>이연주</name></author><category term="TIL" /><summary type="html">docker 설치 후 wsl과 연동 docker에서 jekyll 엔진을 구동하기 위해서는 회사 개발 컴퓨터로 접속해야만 했다. 이제는 WSL을 통해 Windows에서도 docker 사용할 수 있다! docker 설치 후 docker setting에서 WSL 연동할 수 있도록 몇 가지 설정만 하면 되서 매우 편리하다. microsoft docs에 방법이 잘 정리되어 있다.</summary></entry><entry><title type="html">[TIL] 2020-10-20</title><link href="http://0.0.0.0:4000/2020/10/20/TIL/" rel="alternate" type="text/html" title="[TIL] 2020-10-20" /><published>2020-10-20T00:00:00-05:00</published><updated>2020-10-20T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/10/20/TIL</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/20/TIL/">&lt;ol&gt;
-  &lt;li&gt;CLion에서 github 연동
+  &lt;li&gt;CLion에서 git 사용
     &lt;ul&gt;
-      &lt;li&gt;WSL
-        &lt;ul&gt;
-          &lt;li&gt;형상 관리를 위해 CLion과 Git을 연동했다. Git을 직접 설치한 후 경로를 잡아도 되지만, WSL을 이용하면 CLion에서 자동으로 WSL에 설치된 git path를 잡는다고 한다.&lt;/li&gt;
-          &lt;li&gt;WSL 정리 -&amp;gt; 추후 페이지 추가&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;CLion에서 git 사용
-        &lt;ul&gt;
-          &lt;li&gt;Alt + `&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
+      &lt;li&gt;Alt + `&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>이연주</name></author><category term="TIL" /><summary type="html">CLion에서 github 연동 WSL 형상 관리를 위해 CLion과 Git을 연동했다. Git을 직접 설치한 후 경로를 잡아도 되지만, WSL을 이용하면 CLion에서 자동으로 WSL에 설치된 git path를 잡는다고 한다. WSL 정리 -&amp;gt; 추후 페이지 추가 CLion에서 git 사용 Alt + `</summary></entry><entry><title type="html">[TIL] 2020-10-19</title><link href="http://0.0.0.0:4000/2020/10/19/TIL/" rel="alternate" type="text/html" title="[TIL] 2020-10-19" /><published>2020-10-19T00:00:00-05:00</published><updated>2020-10-19T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/10/19/TIL</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/19/TIL/">&lt;ol&gt;
-  &lt;li&gt;github blog 생성
-    &lt;ul&gt;
-      &lt;li&gt;jekyll 적용&lt;/li&gt;
-      &lt;li&gt;docker로 test 환경 구축&lt;/li&gt;
-    &lt;/ul&gt;
+&lt;/ul&gt;</content><author><name>이연주</name></author><category term="TIL" /><summary type="html">1. CLion에서 github 연동 WSL 형상 관리를 위해 CLion과 Git을 연동했다. Git을 직접 설치한 후 경로를 잡아도 되지만, WSL을 이용하면 CLion에서 자동으로 WSL에 설치된 git path를 잡는다고 한다. WSL 정리 -&amp;gt; 추후 페이지 추가 CLion에서 git 사용 Alt + `</summary></entry><entry><title type="html">[TIL] 2020-10-19</title><link href="http://0.0.0.0:4000/2020/10/19/TIL/" rel="alternate" type="text/html" title="[TIL] 2020-10-19" /><published>2020-10-19T00:00:00-05:00</published><updated>2020-10-19T00:00:00-05:00</updated><id>http://0.0.0.0:4000/2020/10/19/TIL</id><content type="html" xml:base="http://0.0.0.0:4000/2020/10/19/TIL/">&lt;h2 id=&quot;1-github-blog-생성&quot;&gt;1. github blog 생성&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;jekyll 적용&lt;/li&gt;
+  &lt;li&gt;docker로 test 환경 구축
     &lt;ul&gt;
       &lt;li&gt;docker run –rm –volume=”$PWD:/srv/jekyll” –privileged -p 4000:4000 -it jekyll/jekyll /bin/bash
     jekyll serve
         &lt;ul&gt;
-          &lt;li&gt;접속할 수 있는 주소를 출력해주면 해당 url로 접속하여 테스트 후 push
-            &lt;ul&gt;
-              &lt;li&gt;docker로 테스트 환경 구축하면 매우 편리&lt;/li&gt;
-              &lt;li&gt;github은 내장하고 있는 ruby 엔진을 통해 로딩&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
+          &lt;li&gt;접속할 수 있는 주소를 출력해주면 해당 url로 접속하여 테스트 후 push&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>이연주</name></author><category term="TIL" /><summary type="html">github blog 생성 jekyll 적용 docker로 test 환경 구축 docker run –rm –volume=”$PWD:/srv/jekyll” –privileged -p 4000:4000 -it jekyll/jekyll /bin/bash jekyll serve 접속할 수 있는 주소를 출력해주면 해당 url로 접속하여 테스트 후 push docker로 테스트 환경 구축하면 매우 편리 github은 내장하고 있는 ruby 엔진을 통해 로딩</summary></entry></feed>
+  &lt;li&gt;docker로 테스트 환경 구축하면 매우 편리&lt;/li&gt;
+  &lt;li&gt;github은 내장하고 있는 ruby 엔진을 통해 로딩&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>이연주</name></author><category term="TIL" /><summary type="html">1. github blog 생성 jekyll 적용 docker로 test 환경 구축 docker run –rm –volume=”$PWD:/srv/jekyll” –privileged -p 4000:4000 -it jekyll/jekyll /bin/bash jekyll serve 접속할 수 있는 주소를 출력해주면 해당 url로 접속하여 테스트 후 push docker로 테스트 환경 구축하면 매우 편리 github은 내장하고 있는 ruby 엔진을 통해 로딩</summary></entry></feed>
